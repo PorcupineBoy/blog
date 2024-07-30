@@ -1,0 +1,123 @@
+workspace
+/usr/local/hadoop/hive/apache-hive-2.3.5
+
+
+hbase目录：
+/usr/local/hadoop/hbase/hbase-2.2.0
+
+
+安装成功、/conf/hive-site.xml
+
+
+
+lib包下上传odbc Jar包
+
+mysql 安装
+
+grant all on *.* to root@'%'  IDENTIFIED BY '135790';
+create user "hive"@'192.168.40.130' IDENTified by "135790";
+
+初始化hive的schema;
+
+到/bin 
+初始化。
+$schema -dbType  mysql -initSchema
+
+hive-----
+创建内部表
+create table person(
+     id int,
+     name string,
+     gender int ,
+     company string)
+     row format delimited fields terminated by '\t';
+
+
+load data local inpath '/usr/local/hadoop/hive/warehouse/hive-test.txt' into table person;
+
+load data local inpath '/usr/local/logs/bill.txt' into table defaulst;
+
+create table default_bill(
+     city string,
+     phone string,
+     name string,
+     mail string,
+     Operator int,
+     cost float,
+     create_time timestamp,    
+     packages string)
+row format delimited fields terminated by '\t';
+
+create external table extenal_bill(
+     city string,
+     phone string,
+     name string,
+     mail string,
+     Operator int,
+     cost float,
+     create_time string,
+     packages string)
+row format delimited fields terminated by '\t'
+location '/usr/local/temp' ;
+
+Thanks and Best Regards.
+
+
+
+
+select * from default_bill where create_time like (select distinct  date_sub(current_date(),1) from default_bill);
+
+
+( select distinct  date_sub(current_date(),1) a from default_bill )
+
+load data local inpath '/data/dept_ana/dataCenter/dataCenter_chenks/data/auth_log/test_data.txt' into table t_e189cn_authlog_source partition(year='2019',month='201908',day='20190806');
+
+
+select * from default_bill d left join (select distinct  date_sub(current_date(),1) as a from default_bill ) c on d.create_time =c.a where c.a=to_date('2019-08-03') ; 
+
+//查询语句：：：：
+select * from default_bill d left join (select phone, date_sub(current_date(),1) as a from default_bill ) c on d.phone =c.phone where operator=2 and c.a=to_date(d.create_time) ;
+
+ 先查昨天 的  日期。     create_time   201
+
+q-a 
+
+```
+1.创表语句中出现
+Display all 469 possibilities? (y or n)
+在hive中load数据时，报错Display all 469 possibilities? (y or n)，这是因为你的load语句中有tab建的存在，避免tab建这种问题就会消失。
+```
+
+思维首先要从面向对象开始想。
+确保一开始的路是对，才开始敲代码。
+hbase-daemon.sh start regionserver
+
+```
+hive 
+建表
+create EXTERNAL TABLE `t_src_zhpt_highFrequency`(
+ `servertime` string,
+ `channel` string,
+ `userId` string
+ )
+ PARTITIONED BY(
+ `year` string,
+ `month` string ,
+ `day` string)
+ ROW FORMAT SERDE 
+ 'org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe' 
+ WITH SERDEPROPERTIES ( 
+ 'field.delim'='|', 
+ 'line.delim'='\n', 
+ 'serialization.format'='|') 
+ STORED AS INPUTFORMAT 
+ 'org.apache.hadoop.mapred.TextInputFormat' 
+ OUTPUTFORMAT 
+ 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+```
+
+```
+select *from table where a ='b';
+
+```
+

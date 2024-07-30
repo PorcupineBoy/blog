@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
+  <link rel="stylesheet" href="./_media/customer.css">
+<link href="https://fonts.googleapis.com/css?family=Lobster"rel="stylesheet">
+</head>
+
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: '未填词的博客',
+      repo: 'https://github.com/PorcupineBoy/blog',
+      themeColor: '#25798A',
+      loadSidebar: true,
+      subMaxLevel: 2,
+      search: 'auto', // 默认值
+      coverpage:true,
+    search : [
+      '/',            // => /README.md
+      '/hadoop/hbase',       // => /guide.md
+      '/linux/linux常用命令', // => /get-started.md
+      '/redis/redis常用命令',      // => /zh-cn/README.md
+      '/java/java基础',      // => /zh-cn/README.md
+    ],
+    }
+  </script>
+  <!-- Docsify v4 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+</body>
+
+
+</html>
