@@ -8,5 +8,5 @@
 
 -
 
-[GitHub](https://github.com/PorcupineBoy/blog/)
+[GitHub]([GitHub](https://porcupineboy.github.io/blog/)
 [Get Started](/README)
